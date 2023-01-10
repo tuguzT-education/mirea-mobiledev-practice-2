@@ -1,8 +1,7 @@
 import 'package:dartz/dartz.dart' as dartz;
-
-import '../model/id.dart';
-import '../model/project.dart';
-import '../result.dart';
+import 'package:todolist_flutter/domain/model/id.dart';
+import 'package:todolist_flutter/domain/model/project.dart';
+import 'package:todolist_flutter/domain/result.dart';
 
 abstract class ProjectRepository {
   Future<DomainResult<Stream<dartz.IList<Project>>>> getAll();

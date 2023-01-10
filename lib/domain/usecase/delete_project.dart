@@ -1,7 +1,7 @@
-import '../model/id.dart';
-import '../model/project.dart';
-import '../repository/project.dart';
-import '../result.dart';
+import 'package:todolist_flutter/domain/model/id.dart';
+import 'package:todolist_flutter/domain/model/project.dart';
+import 'package:todolist_flutter/domain/repository/project.dart';
+import 'package:todolist_flutter/domain/result.dart';
 
 class DeleteProject {
   final ProjectRepository _repository;

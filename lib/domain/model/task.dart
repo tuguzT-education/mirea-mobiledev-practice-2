@@ -1,7 +1,7 @@
-import 'id.dart';
-import 'node.dart';
-import 'project.dart';
-import 'task_due.dart';
+import 'package:todolist_flutter/domain/model/id.dart';
+import 'package:todolist_flutter/domain/model/node.dart';
+import 'package:todolist_flutter/domain/model/project.dart';
+import 'package:todolist_flutter/domain/model/task_due.dart';
 
 class Task implements Node {
   @override

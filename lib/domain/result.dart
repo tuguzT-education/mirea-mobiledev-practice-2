@@ -1,7 +1,6 @@
-import 'package:dartz/dartz.dart';
+import 'package:dartz/dartz.dart' as dartz;
+import 'package:todolist_flutter/domain/error.dart';
 
-import 'error.dart';
-
-typedef Result<T, E> = Either<E, T>;
+typedef Result<T, E> = dartz.Either<E, T>;
 
 typedef DomainResult<T> = Result<T, DomainError>;

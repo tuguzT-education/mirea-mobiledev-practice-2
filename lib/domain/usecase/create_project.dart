@@ -1,7 +1,7 @@
-import '../model/project.dart';
-import '../model/project.dart' as model;
-import '../repository/project.dart';
-import '../result.dart';
+import 'package:todolist_flutter/domain/model/project.dart';
+import 'package:todolist_flutter/domain/model/project.dart' as model;
+import 'package:todolist_flutter/domain/repository/project.dart';
+import 'package:todolist_flutter/domain/result.dart';
 
 class CreateProject {
   final ProjectRepository _repository;

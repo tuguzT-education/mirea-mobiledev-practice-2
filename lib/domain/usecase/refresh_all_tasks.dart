@@ -1,7 +1,7 @@
-import '../model/id.dart';
-import '../model/project.dart';
-import '../repository/task.dart';
-import '../result.dart';
+import 'package:todolist_flutter/domain/model/id.dart';
+import 'package:todolist_flutter/domain/model/project.dart';
+import 'package:todolist_flutter/domain/repository/task.dart';
+import 'package:todolist_flutter/domain/result.dart';
 
 class RefreshAllTasks {
   final TaskRepository _repository;

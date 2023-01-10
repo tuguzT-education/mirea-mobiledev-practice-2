@@ -1,8 +1,7 @@
 import 'package:dartz/dartz.dart' as dartz;
-
-import 'id.dart';
-import 'node.dart';
-import 'task.dart';
+import 'package:todolist_flutter/domain/model/id.dart';
+import 'package:todolist_flutter/domain/model/node.dart';
+import 'package:todolist_flutter/domain/model/task.dart';
 
 class Project implements Node {
   @override

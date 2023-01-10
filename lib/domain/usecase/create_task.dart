@@ -1,7 +1,7 @@
-import '../model/task.dart';
-import '../model/task.dart' as model;
-import '../repository/task.dart';
-import '../result.dart';
+import 'package:todolist_flutter/domain/model/task.dart';
+import 'package:todolist_flutter/domain/model/task.dart' as model;
+import 'package:todolist_flutter/domain/repository/task.dart';
+import 'package:todolist_flutter/domain/result.dart';
 
 class CreateTask {
   final TaskRepository _repository;

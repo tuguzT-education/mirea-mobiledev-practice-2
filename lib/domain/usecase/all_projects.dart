@@ -1,8 +1,7 @@
 import 'package:dartz/dartz.dart' as dartz;
-
-import '../model/project.dart';
-import '../repository/project.dart';
-import '../result.dart';
+import 'package:todolist_flutter/domain/model/project.dart';
+import 'package:todolist_flutter/domain/repository/project.dart';
+import 'package:todolist_flutter/domain/result.dart';
 
 class AllProjects {
   final ProjectRepository _repository;
