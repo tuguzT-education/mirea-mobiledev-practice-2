@@ -67,3 +67,44 @@ Map<String, dynamic> _$ApiTaskDueToJson(ApiTaskDue instance) =>
       'datetime': instance.datetime,
       'timezone': instance.timezone,
     };
+
+ApiCreateTask _$ApiCreateTaskFromJson(Map<String, dynamic> json) =>
+    ApiCreateTask(
+      content: json['content'] as String,
+      description: json['description'] as String,
+      projectId: json['project_id'] as String,
+    );
+
+Map<String, dynamic> _$ApiCreateTaskToJson(ApiCreateTask instance) =>
+    <String, dynamic>{
+      'content': instance.content,
+      'description': instance.description,
+      'project_id': instance.projectId,
+    };
+
+ApiUpdateTask _$ApiUpdateTaskFromJson(Map<String, dynamic> json) =>
+    ApiUpdateTask(
+      content: json['content'] as String?,
+      description: json['description'] as String?,
+      labels:
+          (json['labels'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      priority: json['priority'] as int?,
+      dueString: json['due_string'] as String?,
+      dueDate: json['due_date'] as String?,
+      dueDatetime: json['due_datetime'] as String?,
+      dueLang: json['due_lang'] as String?,
+      assigneeId: json['assignee_id'] as String?,
+    );
+
+Map<String, dynamic> _$ApiUpdateTaskToJson(ApiUpdateTask instance) =>
+    <String, dynamic>{
+      'content': instance.content,
+      'description': instance.description,
+      'labels': instance.labels,
+      'priority': instance.priority,
+      'due_string': instance.dueString,
+      'due_date': instance.dueDate,
+      'due_datetime': instance.dueDatetime,
+      'due_lang': instance.dueLang,
+      'assignee_id': instance.assigneeId,
+    };

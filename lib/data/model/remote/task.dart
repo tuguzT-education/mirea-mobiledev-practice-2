@@ -71,3 +71,51 @@ class ApiTaskDue {
 
   Map<String, dynamic> toJson() => _$ApiTaskDueToJson(this);
 }
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class ApiCreateTask {
+  final String content;
+  final String description;
+  final String projectId;
+
+  ApiCreateTask({
+    required this.content,
+    required this.description,
+    required this.projectId,
+  });
+
+  factory ApiCreateTask.fromJson(Map<String, dynamic> json) =>
+      _$ApiCreateTaskFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ApiCreateTaskToJson(this);
+}
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class ApiUpdateTask {
+  final String? content;
+  final String? description;
+  final List<String>? labels;
+  final int? priority;
+  final String? dueString;
+  final String? dueDate;
+  final String? dueDatetime;
+  final String? dueLang;
+  final String? assigneeId;
+
+  ApiUpdateTask({
+    this.content,
+    this.description,
+    this.labels,
+    this.priority,
+    this.dueString,
+    this.dueDate,
+    this.dueDatetime,
+    this.dueLang,
+    this.assigneeId,
+  });
+
+  factory ApiUpdateTask.fromJson(Map<String, dynamic> json) =>
+      _$ApiUpdateTaskFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ApiUpdateTaskToJson(this);
+}
