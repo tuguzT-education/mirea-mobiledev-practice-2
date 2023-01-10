@@ -38,6 +38,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   # Functional programming in Dart
   dartz: ^0.10.1
+  # HTTP client
+  dio: ^4.0.6
+  # JSON serialization and deserialization
+  json_annotation: ^4.7.0
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +53,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  # JSON serialization and deserialization
+  build_runner: ^2.0.0
+  json_serializable: ^6.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
