@@ -4,12 +4,12 @@ import 'package:todolist_flutter/domain/repository/task.dart';
 import 'package:todolist_flutter/domain/result.dart';
 
 class RefreshAllTasks {
-  final TaskRepository _repository;
+  final TaskRepository repository;
 
-  const RefreshAllTasks(this._repository);
+  const RefreshAllTasks({required this.repository});
 
   Future<DomainResult<void>> refreshAllTasks({
     required Id<Project> project,
   }) async =>
-      await _repository.refreshAll(project: project);
+      await repository.refreshAll(project: project);
 }

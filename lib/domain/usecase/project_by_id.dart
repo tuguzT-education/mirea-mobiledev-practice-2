@@ -4,12 +4,12 @@ import 'package:todolist_flutter/domain/repository/project.dart';
 import 'package:todolist_flutter/domain/result.dart';
 
 class ProjectById {
-  final ProjectRepository _repository;
+  final ProjectRepository repository;
 
-  const ProjectById(this._repository);
+  const ProjectById({required this.repository});
 
   Future<DomainResult<Stream<Project?>>> projectById({
     required Id<Project> id,
   }) async =>
-      await _repository.findById(id: id);
+      await repository.findById(id: id);
 }

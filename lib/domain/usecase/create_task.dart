@@ -4,12 +4,12 @@ import 'package:todolist_flutter/domain/repository/task.dart';
 import 'package:todolist_flutter/domain/result.dart';
 
 class CreateTask {
-  final TaskRepository _repository;
+  final TaskRepository repository;
 
-  const CreateTask(this._repository);
+  const CreateTask({required this.repository});
 
   Future<DomainResult<Task>> createTask({
     required model.CreateTask create,
   }) async =>
-      _repository.create(create: create);
+      repository.create(create: create);
 }

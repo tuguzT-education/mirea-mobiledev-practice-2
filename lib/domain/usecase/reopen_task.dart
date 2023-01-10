@@ -4,12 +4,12 @@ import 'package:todolist_flutter/domain/repository/task.dart';
 import 'package:todolist_flutter/domain/result.dart';
 
 class ReopenTask {
-  final TaskRepository _repository;
+  final TaskRepository repository;
 
-  const ReopenTask(this._repository);
+  const ReopenTask({required this.repository});
 
   Future<DomainResult<void>> reopenTask({required Id<Task> id}) async {
     const update = UpdateTask(completed: false);
-    return await _repository.update(id: id, update: update);
+    return await repository.update(id: id, update: update);
   }
 }

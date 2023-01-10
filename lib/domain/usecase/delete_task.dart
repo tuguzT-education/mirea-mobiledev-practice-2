@@ -4,10 +4,10 @@ import 'package:todolist_flutter/domain/repository/task.dart';
 import 'package:todolist_flutter/domain/result.dart';
 
 class DeleteTask {
-  final TaskRepository _repository;
+  final TaskRepository repository;
 
-  const DeleteTask(this._repository);
+  const DeleteTask({required this.repository});
 
   Future<DomainResult<void>> deleteTask({required Id<Task> id}) async =>
-      await _repository.delete(id: id);
+      await repository.delete(id: id);
 }

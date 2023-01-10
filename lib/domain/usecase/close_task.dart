@@ -4,12 +4,12 @@ import 'package:todolist_flutter/domain/repository/task.dart';
 import 'package:todolist_flutter/domain/result.dart';
 
 class CloseTask {
-  final TaskRepository _repository;
+  final TaskRepository repository;
 
-  const CloseTask(this._repository);
+  const CloseTask({required this.repository});
 
   Future<DomainResult<void>> closeTask({required Id<Task> id}) async {
     const update = UpdateTask(completed: true);
-    return await _repository.update(id: id, update: update);
+    return await repository.update(id: id, update: update);
   }
 }

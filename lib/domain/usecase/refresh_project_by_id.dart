@@ -4,12 +4,12 @@ import 'package:todolist_flutter/domain/repository/project.dart';
 import 'package:todolist_flutter/domain/result.dart';
 
 class RefreshProjectById {
-  final ProjectRepository _repository;
+  final ProjectRepository repository;
 
-  const RefreshProjectById(this._repository);
+  const RefreshProjectById({required this.repository});
 
   Future<DomainResult<void>> refreshProjectById({
     required Id<Project> id,
   }) async =>
-      await _repository.refreshById(id: id);
+      await repository.refreshById(id: id);
 }
