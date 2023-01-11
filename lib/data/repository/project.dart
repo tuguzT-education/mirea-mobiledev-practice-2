@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:todolist_flutter/data/datasource/local/project.dart';
 import 'package:todolist_flutter/data/datasource/remote/project.dart';
@@ -20,7 +22,7 @@ class ProjectRepositoryImpl implements ProjectRepository {
     final result = await remoteDataSource.create(create: create);
     if (result.isRight()) {
       final project = result.asRight();
-      return await localDataSource.save(project: project);
+      return dartz.right(project);
     } else {
       return result;
     }
@@ -30,7 +32,7 @@ class ProjectRepositoryImpl implements ProjectRepository {
   Future<DomainResult<void>> delete({required Id<Project> id}) async {
     final result = await remoteDataSource.delete(id: id);
     if (result.isRight()) {
-      return await localDataSource.delete(id: id);
+      return dartz.right(null);
     } else {
       return result;
     }
@@ -39,23 +41,36 @@ class ProjectRepositoryImpl implements ProjectRepository {
   @override
   Future<DomainResult<Stream<Project?>>> findById({
     required Id<Project> id,
-  }) async =>
-      await localDataSource.findById(id: id);
+  }) async {
+    final result = await remoteDataSource.findById(id: id);
+    if (result.isRight()) {
+      final project = result.asRight();
+      final controller = StreamController<Project?>();
+      controller.add(project);
+      return dartz.right(controller.stream);
+    } else {
+      final error = result.asLeft();
+      return dartz.left(error);
+    }
+  }
 
   @override
-  Future<DomainResult<Stream<dartz.IList<Project>>>> getAll() async =>
-      await localDataSource.getAll();
-
-  @override
-  Future<DomainResult<void>> refreshAll() async {
+  Future<DomainResult<Stream<dartz.IList<Project>>>> getAll() async {
     final result = await remoteDataSource.getAll();
     if (result.isRight()) {
       final projects = result.asRight();
-      return await localDataSource.saveAll(projects: projects);
+      final controller = StreamController<dartz.IList<Project>>();
+      controller.add(projects);
+      return dartz.right(controller.stream);
     } else {
-      return result;
+      final error = result.asLeft();
+      return dartz.left(error);
     }
   }
+
+  @override
+  Future<DomainResult<void>> refreshAll() async =>
+      await remoteDataSource.getAll();
 
   @override
   Future<DomainResult<void>> refreshById({required Id<Project> id}) async {
@@ -65,7 +80,7 @@ class ProjectRepositoryImpl implements ProjectRepository {
       if (project == null) {
         return dartz.right(null);
       }
-      return await localDataSource.save(project: project);
+      return dartz.right(null);
     } else {
       return result;
     }
@@ -79,7 +94,7 @@ class ProjectRepositoryImpl implements ProjectRepository {
     final result = await remoteDataSource.update(id: id, update: update);
     if (result.isRight()) {
       final project = result.asRight();
-      return await localDataSource.save(project: project);
+      return dartz.right(project);
     } else {
       return result;
     }
