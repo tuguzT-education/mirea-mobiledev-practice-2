@@ -17,7 +17,7 @@ ApiProject _$ApiProjectFromJson(Map<String, dynamic> json) => ApiProject(
       isFavorite: json['is_favorite'] as bool,
       isInboxProject: json['is_inbox_project'] as bool,
       isTeamInbox: json['is_team_inbox'] as bool,
-      viewStyle: json['view_style'] as bool,
+      viewStyle: json['view_style'] as String,
       url: json['url'] as String,
     );
 

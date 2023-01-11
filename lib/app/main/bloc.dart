@@ -16,7 +16,7 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   ) async {
     emit(state.copy(refreshing: true));
     final result = await allProjects.allProjects();
-    result.fold(
+    await result.fold(
       (error) {
         final message = Message(message: error.message ?? "Unknown error");
         final messages = state.messages.appendElement(message);

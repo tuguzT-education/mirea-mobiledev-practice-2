@@ -14,7 +14,7 @@ class ApiProject {
   final bool isFavorite;
   final bool isInboxProject;
   final bool isTeamInbox;
-  final bool viewStyle;
+  final String viewStyle;
   final String url;
 
   ApiProject({
